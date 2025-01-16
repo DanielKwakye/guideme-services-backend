@@ -1,6 +1,7 @@
 import express from 'express'
 import bodyParser from "body-parser";
 import authRoutes from "./routes/auth.routes.js";
+import sequelize from  "./utils/database.js";
 
 const app = express()
 // app.use(express.urlencoded({ extended: true })); // x-www-form-urlencoded
@@ -19,6 +20,16 @@ app.get('/', (req, res, next) => {
 })
 
 app.use(authRoutes)
+
+// Test the database connection
+
+sequelize.authenticate()
+  .then(() => {
+    console.log("Connection to the database has been established successfully.");
+  })
+  .catch((err) => {
+    console.error("Unable to connect to the database:", err);
+  });
 
 
 app.listen(8000, () => {
