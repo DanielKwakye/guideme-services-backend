@@ -26,12 +26,12 @@ app.use(authRoutes)
 sequelize.authenticate()
   .then(() => {
     console.log("Connection to the database has been established successfully.");
+      app.listen(8000, () => {
+          console.log('Server running on port 8000')
+      })
   })
   .catch((err) => {
     console.error("Unable to connect to the database:", err);
   });
 
 
-app.listen(8000, () => {
-    console.log('Server running on port 8000')
-})
