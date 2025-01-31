@@ -1,5 +1,5 @@
 import {NextFunction, Request, Response} from "express";
-import passport from "passport";
+
 //@ts-ignore
 import GoogleStrategy from  "passport-google-oidc"
 import jwt from "jsonwebtoken";
